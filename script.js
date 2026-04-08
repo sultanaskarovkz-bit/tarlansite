@@ -2,7 +2,7 @@
 
 // Loader
 window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hide'), 2400);
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 1200);
 });
 
 // Header scroll
