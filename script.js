@@ -1,17 +1,17 @@
-/* Tarlan Trans Plus — Script */
+/* Tarlan Trans Plus — V5 Script */
 
-// Loader
+// ===== LOADER =====
 window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hide'), 1200);
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 1500);
 });
 
-// Header scroll
+// ===== HEADER =====
 window.addEventListener('scroll', () => {
     document.getElementById('header').classList.toggle('scrolled', scrollY > 50);
     document.getElementById('topBtn').classList.toggle('show', scrollY > 500);
 }, { passive: true });
 
-// Burger
+// ===== BURGER =====
 const burger = document.getElementById('burger');
 const mob = document.getElementById('mob');
 burger.addEventListener('click', () => {
@@ -20,12 +20,10 @@ burger.addEventListener('click', () => {
     document.body.style.overflow = mob.classList.contains('on') ? 'hidden' : '';
 });
 mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger.classList.remove('on');
-    mob.classList.remove('on');
-    document.body.style.overflow = '';
+    burger.classList.remove('on'); mob.classList.remove('on'); document.body.style.overflow = '';
 }));
 
-// Smooth scroll
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
@@ -34,29 +32,60 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// Scroll animations
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('[data-a]').forEach(el => obs.observe(el));
+// ===== SCROLL REVEAL =====
+const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObs.unobserve(e.target); // only animate once
+        }
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 
-// Back to top
+// ===== COUNTER ANIMATION =====
+function animateCount(el) {
+    const target = parseInt(el.dataset.count);
+    if (!target) return;
+    const dur = 2500;
+    const start = performance.now();
+    const tick = now => {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 4);
+        el.textContent = Math.round(ease * target).toLocaleString('ru-RU');
+        if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+}
+
+const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('[data-count]').forEach(animateCount);
+            counterObs.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.3 });
+const hs = document.querySelector('.hero-stats');
+if (hs) counterObs.observe(hs);
+
+// ===== BACK TO TOP =====
 document.getElementById('topBtn').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Active nav
+// ===== ACTIVE NAV =====
 const secs = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav a');
+const navLinks = document.querySelectorAll('.nav a');
 window.addEventListener('scroll', () => {
-    const y = scrollY + 100;
+    const y = scrollY + 120;
     secs.forEach(s => {
         const link = document.querySelector(`.nav a[href="#${s.id}"]`);
         if (link) link.classList.toggle('active', y >= s.offsetTop && y < s.offsetTop + s.offsetHeight);
     });
 }, { passive: true });
 
-// Form → WhatsApp
+// ===== FORM → WHATSAPP =====
 const form = document.getElementById('contactForm');
 if (form) form.addEventListener('submit', e => {
     e.preventDefault();
@@ -72,4 +101,17 @@ if (form) form.addEventListener('submit', e => {
     btn.textContent = '✓ Перенаправление в WhatsApp...';
     btn.style.background = '#25D366';
     setTimeout(() => { btn.textContent = 'Отправить заявку →'; btn.style.background = ''; form.reset(); }, 3000);
+});
+
+// ===== TILT EFFECT ON CARDS =====
+document.querySelectorAll('.srv, .why').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translateY(-10px) perspective(600px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
 });

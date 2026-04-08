@@ -21,7 +21,8 @@
       "Bash(cp \"/c/Users/User/Downloads/90271c66716f19efcf119846d5c5f884.jpg\" /c/Users/User/Desktop/tarlansite/img/customs.jpg)",
       "Bash(cp \"/c/Users/User/Downloads/cargo_consolidation.jpeg\" /c/Users/User/Desktop/tarlansite/img/consolidation.jpeg)",
       "Bash(ls -lt /c/Users/User/Downloads/*.mp4)",
-      "Bash(where ffmpeg:*)"
+      "Bash(where ffmpeg:*)",
+      "Bash(ls -t /c/Users/User/Downloads/*.jpg /c/Users/User/Downloads/*.png)"
     ]
   }
 }
