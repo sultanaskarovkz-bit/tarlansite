@@ -1,33 +1,31 @@
-/* ============================
-   TARLAN TRANS PLUS — Production JS
-   ============================ */
+/* Tarlan Trans Plus — Script */
 
-// --- Loader ---
+// Loader
 window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('done'), 2400);
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 2400);
 });
 
-// --- Header scroll ---
-const header = document.getElementById('header');
-const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-    document.getElementById('topBtn').classList.toggle('show', window.scrollY > 500);
-};
-window.addEventListener('scroll', onScroll, { passive: true });
+// Header scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', scrollY > 50);
+    document.getElementById('topBtn').classList.toggle('show', scrollY > 500);
+}, { passive: true });
 
-// --- Burger ---
+// Burger
 const burger = document.getElementById('burger');
-const overlay = document.getElementById('mobOverlay');
-const closeMob = () => { burger.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; };
-
+const mob = document.getElementById('mob');
 burger.addEventListener('click', () => {
-    const open = burger.classList.toggle('open');
-    overlay.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+    burger.classList.toggle('on');
+    mob.classList.toggle('on');
+    document.body.style.overflow = mob.classList.contains('on') ? 'hidden' : '';
 });
-overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('on');
+    mob.classList.remove('on');
+    document.body.style.overflow = '';
+}));
 
-// --- Smooth scroll ---
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
@@ -36,89 +34,42 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// --- Counter animation ---
-function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
-    if (!target) return;
-    const dur = 2200;
-    const start = performance.now();
-    const step = now => {
-        const p = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - p, 4);
-        el.textContent = Math.round(ease * target).toLocaleString('ru-RU');
-        if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-}
-
-const counterObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.querySelectorAll('[data-target]').forEach(animateCounter);
-            counterObs.unobserve(e.target);
-        }
-    });
-}, { threshold: 0.4 });
-
-const hc = document.querySelector('.hero-counters');
-if (hc) counterObs.observe(hc);
-
-// --- AOS (Animate on Scroll) ---
-const aosObs = new IntersectionObserver(entries => {
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-aos]').forEach(el => aosObs.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('[data-a]').forEach(el => obs.observe(el));
 
-// --- Back to top ---
+// Back to top
 document.getElementById('topBtn').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// --- Active nav link ---
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.desktop-nav a');
+// Active nav
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav a');
 window.addEventListener('scroll', () => {
-    const y = window.scrollY + 120;
-    sections.forEach(s => {
-        const top = s.offsetTop, h = s.offsetHeight, id = s.id;
-        const link = document.querySelector(`.desktop-nav a[href="#${id}"]`);
-        if (link) {
-            if (y >= top && y < top + h) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-            }
-        }
+    const y = scrollY + 100;
+    secs.forEach(s => {
+        const link = document.querySelector(`.nav a[href="#${s.id}"]`);
+        if (link) link.classList.toggle('active', y >= s.offsetTop && y < s.offsetTop + s.offsetHeight);
     });
 }, { passive: true });
 
-// --- Form → WhatsApp ---
+// Form → WhatsApp
 const form = document.getElementById('contactForm');
-if (form) {
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const service = document.getElementById('serviceType').value;
-        const msg = document.getElementById('message').value.trim();
-
-        let text = `Здравствуйте! Меня зовут ${name}.%0AТелефон: ${phone}`;
-        if (service) text += `%0AТип перевозки: ${service}`;
-        if (msg) text += `%0AСообщение: ${msg}`;
-
-        window.open(`https://wa.me/77087211651?text=${text}`, '_blank');
-
-        const btn = form.querySelector('button[type="submit"]');
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<span>Перенаправление в WhatsApp...</span>';
-        btn.style.background = '#25D366';
-        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; form.reset(); }, 3000);
-    });
-}
-
-// --- Parallax hero video subtle ---
-window.addEventListener('scroll', () => {
-    const video = document.querySelector('.hero-video');
-    if (video && window.scrollY < window.innerHeight) {
-        video.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-    }
-}, { passive: true });
+if (form) form.addEventListener('submit', e => {
+    e.preventDefault();
+    const n = document.getElementById('name').value.trim();
+    const p = document.getElementById('phone').value.trim();
+    const s = document.getElementById('serviceType').value;
+    const m = document.getElementById('message').value.trim();
+    let t = `Здравствуйте! Меня зовут ${n}.%0AТелефон: ${p}`;
+    if (s) t += `%0AТип: ${s}`;
+    if (m) t += `%0A${m}`;
+    window.open(`https://wa.me/77087211651?text=${t}`, '_blank');
+    const btn = form.querySelector('button');
+    btn.textContent = '✓ Перенаправление в WhatsApp...';
+    btn.style.background = '#25D366';
+    setTimeout(() => { btn.textContent = 'Отправить заявку →'; btn.style.background = ''; form.reset(); }, 3000);
+});

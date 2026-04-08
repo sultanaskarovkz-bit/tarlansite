@@ -13,7 +13,8 @@
       "Read(//c/Users/User/gh-cli/**)",
       "Bash($GH:*)",
       "Bash($GH auth:*)",
-      "Bash($GH repo:*)"
+      "Bash($GH repo:*)",
+      "Bash(git push:*)"
     ]
   }
 }
