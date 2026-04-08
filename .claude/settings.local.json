@@ -14,7 +14,14 @@
       "Bash($GH:*)",
       "Bash($GH auth:*)",
       "Bash($GH repo:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(cp \"/c/Users/User/Downloads/aviapervozki-bystraja-dostavka.webp\" /c/Users/User/Desktop/tarlansite/img/avia.webp)",
+      "Bash(cp \"/c/Users/User/Downloads/90339350_w640_h640_zheleznodorozhnye-perevozki-gruza.webp\" /c/Users/User/Desktop/tarlansite/img/rail.webp)",
+      "Bash(cp \"/c/Users/User/Downloads/gruzoperevozki-po-kazahstanu-2-1024x617.jpg\" /c/Users/User/Desktop/tarlansite/img/auto.jpg)",
+      "Bash(cp \"/c/Users/User/Downloads/90271c66716f19efcf119846d5c5f884.jpg\" /c/Users/User/Desktop/tarlansite/img/customs.jpg)",
+      "Bash(cp \"/c/Users/User/Downloads/cargo_consolidation.jpeg\" /c/Users/User/Desktop/tarlansite/img/consolidation.jpeg)",
+      "Bash(ls -lt /c/Users/User/Downloads/*.mp4)",
+      "Bash(where ffmpeg:*)"
     ]
   }
 }
