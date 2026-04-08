@@ -4,580 +4,554 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarlan Trans Plus — Грузоперевозки Китай-Россия-СНГ</title>
-    <meta name="description" content="Tarlan Trans Plus — надёжные грузоперевозки из Китая в Россию и страны СНГ. Авиа, ж/д и автоперевозки. Индивидуальный подход к каждому клиенту.">
+    <meta name="description" content="Tarlan Trans Plus — надёжные грузоперевозки из Китая в Россию и страны СНГ. Авиа, ж/д и автоперевозки.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Loader -->
     <div id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <svg viewBox="0 0 120 120" class="loader-horse">
-                    <defs>
-                        <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FF8C00"/>
-                            <stop offset="100%" style="stop-color:#FF6000"/>
-                        </linearGradient>
-                    </defs>
-                    <circle cx="60" cy="60" r="55" fill="none" stroke="url(#loaderGrad)" stroke-width="3" class="loader-circle"/>
-                    <text x="60" y="68" text-anchor="middle" font-size="50" fill="url(#loaderGrad)" font-family="Oswald, sans-serif" font-weight="700">T</text>
-                </svg>
+        <div class="loader-inner">
+            <div class="loader-logo-wrap">
+                <div class="loader-icon">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="60" height="60" rx="16" fill="url(#lg)"/>
+                        <defs><linearGradient id="lg" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#FF9500"/><stop offset="1" stop-color="#E8700A"/></linearGradient></defs>
+                        <text x="30" y="40" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="800" font-size="32" fill="#fff">T</text>
+                    </svg>
+                </div>
+                <div class="loader-brand">
+                    <span class="loader-name">TARLAN TRANS</span>
+                    <span class="loader-plus">PLUS</span>
+                </div>
             </div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
+            <div class="loader-progress">
+                <div class="loader-track">
+                    <div class="loader-fill"></div>
+                </div>
             </div>
-            <p class="loader-text">TARLAN TRANS PLUS</p>
         </div>
     </div>
 
     <!-- Header -->
     <header id="header">
-        <div class="container header-inner">
+        <div class="container header-flex">
             <a href="#hero" class="logo">
-                <div class="logo-icon">T</div>
-                <div class="logo-text">
-                    <span class="logo-name">TARLAN</span>
-                    <span class="logo-sub">TRANS PLUS</span>
+                <div class="logo-mark">T</div>
+                <div class="logo-type">
+                    <span>TARLAN TRANS</span>
+                    <small>PLUS</small>
                 </div>
             </a>
-            <nav class="nav" id="nav">
-                <a href="#about" class="nav-link">О компании</a>
-                <a href="#services" class="nav-link">Услуги</a>
-                <a href="#advantages" class="nav-link">Преимущества</a>
-                <a href="#geography" class="nav-link">География</a>
-                <a href="#contacts" class="nav-link">Контакты</a>
+            <nav class="desktop-nav" id="desktopNav">
+                <a href="#about">О компании</a>
+                <a href="#services">Услуги</a>
+                <a href="#why-us">Преимущества</a>
+                <a href="#geography">География</a>
+                <a href="#process">Как работаем</a>
+                <a href="#contacts">Контакты</a>
             </nav>
-            <a href="#contacts" class="btn btn-header">Оставить заявку</a>
-            <button class="burger" id="burger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="header-actions">
+                <a href="tel:+77087211651" class="header-phone">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>+7 (708) 721-16-51</span>
+                </a>
+                <a href="#contacts" class="btn btn-glow">Оставить заявку</a>
+            </div>
+            <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-nav">
-            <a href="#about" class="mobile-link">О компании</a>
-            <a href="#services" class="mobile-link">Услуги</a>
-            <a href="#advantages" class="mobile-link">Преимущества</a>
-            <a href="#geography" class="mobile-link">География</a>
-            <a href="#contacts" class="mobile-link">Контакты</a>
-            <a href="#contacts" class="btn btn-mobile">Оставить заявку</a>
-        </nav>
+    <div class="mob-overlay" id="mobOverlay">
+        <div class="mob-panel">
+            <nav class="mob-nav">
+                <a href="#about">О компании</a>
+                <a href="#services">Услуги</a>
+                <a href="#why-us">Преимущества</a>
+                <a href="#geography">География</a>
+                <a href="#process">Как работаем</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="mob-footer">
+                <a href="tel:+77087211651" class="mob-phone">+7 (708) 721-16-51</a>
+                <a href="#contacts" class="btn btn-glow btn-full mob-cta">Оставить заявку</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <section id="hero" class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-particles" id="particles"></div>
-        <div class="container hero-content">
-            <div class="hero-badge">Надёжный логистический партнёр</div>
-            <h1 class="hero-title">
-                Грузоперевозки<br>
-                <span class="hero-highlight">Китай — Россия — СНГ</span>
-            </h1>
-            <p class="hero-desc">Полный спектр логистических услуг: авиа, железнодорожные и автомобильные перевозки из Китая в Россию и страны СНГ с индивидуальным подходом</p>
-            <div class="hero-buttons">
-                <a href="#contacts" class="btn btn-primary btn-lg">Рассчитать стоимость</a>
-                <a href="#services" class="btn btn-outline btn-lg">Наши услуги</a>
+        <div class="hero-video-wrap">
+            <video autoplay muted loop playsinline preload="auto" class="hero-video" poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80">
+                <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-containers-in-a-port-3837/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+        <div class="container hero-body">
+            <div class="hero-content">
+                <div class="hero-chip">
+                    <span class="chip-dot"></span>
+                    Надёжный логистический партнёр с 2016 года
+                </div>
+                <h1>Грузоперевозки <br><span class="gradient-text">Китай — Россия — СНГ</span></h1>
+                <p class="hero-sub">Авиа, железнодорожные и автомобильные перевозки грузов любой сложности. Индивидуальный расчёт стоимости, полное таможенное сопровождение и доставка от двери до двери.</p>
+                <div class="hero-btns">
+                    <a href="#contacts" class="btn btn-glow btn-xl">
+                        <span>Рассчитать доставку</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="https://wa.me/77087211651" target="_blank" class="btn btn-glass btn-xl">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0012.05 0z"/></svg>
+                        <span>Написать в WhatsApp</span>
+                    </a>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">лет на рынке</span>
+            <div class="hero-counters">
+                <div class="counter-card">
+                    <span class="counter-val" data-target="8">0</span><span class="counter-suffix">+</span>
+                    <span class="counter-label">лет опыта</span>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-num" data-target="1500">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">довольных клиентов</span>
+                <div class="counter-divider"></div>
+                <div class="counter-card">
+                    <span class="counter-val" data-target="1500">0</span><span class="counter-suffix">+</span>
+                    <span class="counter-label">клиентов</span>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-num" data-target="10000">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">доставленных грузов</span>
+                <div class="counter-divider"></div>
+                <div class="counter-card">
+                    <span class="counter-val" data-target="10000">0</span><span class="counter-suffix">+</span>
+                    <span class="counter-label">доставок</span>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-num">24/7</span>
-                    <span class="stat-label">поддержка клиентов</span>
+                <div class="counter-divider"></div>
+                <div class="counter-card">
+                    <span class="counter-val">24/7</span>
+                    <span class="counter-label">поддержка</span>
                 </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <span>Листайте вниз</span>
-            <div class="scroll-arrow"></div>
+        <div class="hero-scroll-hint">
+            <div class="scroll-mouse"><div class="scroll-dot"></div></div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section about">
+    <!-- ABOUT -->
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">О нас</span>
-                <h2 class="section-title">Tarlan Trans Plus</h2>
-                <p class="section-subtitle">Ваш надёжный логистический партнёр на маршруте Китай — СНГ</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p><strong>Tarlan Trans Plus</strong> — логистическая компания, специализирующаяся на грузоперевозках из Китая в Россию и страны СНГ. Мы предоставляем полный комплекс услуг по доставке грузов авиа, железнодорожным и автомобильным транспортом.</p>
-                    <p>Наша команда профессионалов обеспечивает надёжную и своевременную доставку грузов любой сложности. Мы работаем с каждым клиентом индивидуально, подбирая оптимальные маршруты и условия перевозки.</p>
+            <div class="about-layout">
+                <div class="about-images">
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Контейнерные перевозки" loading="lazy">
+                    </div>
+                    <div class="about-img-float">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=500&q=80" alt="Авиаперевозки" loading="lazy">
+                    </div>
+                    <div class="about-exp-badge">
+                        <span class="exp-num">8+</span>
+                        <span class="exp-text">лет на<br>рынке</span>
+                    </div>
+                </div>
+                <div class="about-body">
+                    <span class="tag">О компании</span>
+                    <h2 class="section-title">Tarlan Trans Plus — <span class="gradient-text">ваш мост</span> между Китаем и СНГ</h2>
+                    <p class="about-lead">Мы специализируемся на грузоперевозках из Китая в Россию и страны СНГ, предоставляя полный комплекс логистических услуг.</p>
+                    <p class="about-desc">Наша команда обеспечивает надёжную и своевременную доставку грузов любой сложности. Мы работаем индивидуально с каждым клиентом, подбирая оптимальные маршруты и условия перевозки. Без скрытых платежей — стоимость рассчитывается и фиксируется до начала перевозки.</p>
                     <div class="about-features">
-                        <div class="about-feature">
-                            <div class="about-feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                            </div>
-                            <div>
-                                <h4>Все виды грузов</h4>
-                                <p>Перевозим сборные, генеральные и негабаритные грузы</p>
-                            </div>
+                        <div class="about-feat">
+                            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+                            <div><strong>Любые грузы</strong><p>Сборные, генеральные и негабаритные</p></div>
                         </div>
-                        <div class="about-feature">
-                            <div class="about-feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                            </div>
-                            <div>
-                                <h4>Полная безопасность</h4>
-                                <p>Страхование груза и отслеживание на каждом этапе</p>
-                            </div>
+                        <div class="about-feat">
+                            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                            <div><strong>Безопасность</strong><p>Страхование и отслеживание на всех этапах</p></div>
                         </div>
-                        <div class="about-feature">
-                            <div class="about-feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                            </div>
-                            <div>
-                                <h4>Оперативность</h4>
-                                <p>Быстрая обработка заявок и минимальные сроки доставки</p>
-                            </div>
+                        <div class="about-feat">
+                            <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                            <div><strong>Скорость</strong><p>Минимальные сроки, обработка заявки за 30 мин</p></div>
                         </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="about-map">
-                        <svg viewBox="0 0 500 300" class="map-svg">
-                            <!-- Simplified map illustration -->
-                            <defs>
-                                <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#FF8C00;stop-opacity:0.3"/>
-                                    <stop offset="100%" style="stop-color:#FF6000;stop-opacity:0.1"/>
-                                </linearGradient>
-                            </defs>
-                            <ellipse cx="250" cy="150" rx="220" ry="120" fill="url(#mapGrad)" stroke="#FF8C00" stroke-width="1" stroke-dasharray="5,5"/>
-                            <!-- China -->
-                            <circle cx="380" cy="140" r="25" fill="#FF8C0030" stroke="#FF8C00" stroke-width="2"/>
-                            <text x="380" y="145" text-anchor="middle" fill="#FF8C00" font-size="11" font-family="Montserrat">CN</text>
-                            <!-- Kazakhstan -->
-                            <circle cx="280" cy="110" r="20" fill="#FF8C0025" stroke="#FF8C00" stroke-width="1.5"/>
-                            <text x="280" y="115" text-anchor="middle" fill="#FF8C00" font-size="10" font-family="Montserrat">KZ</text>
-                            <!-- Russia -->
-                            <circle cx="180" cy="80" r="28" fill="#FF8C0030" stroke="#FF8C00" stroke-width="2"/>
-                            <text x="180" y="85" text-anchor="middle" fill="#FF8C00" font-size="11" font-family="Montserrat">RU</text>
-                            <!-- Routes -->
-                            <path d="M355 140 Q300 100 208 80" fill="none" stroke="#FF8C00" stroke-width="2" stroke-dasharray="8,4" class="route-line"/>
-                            <path d="M355 140 Q320 120 300 110" fill="none" stroke="#FF8C00" stroke-width="1.5" stroke-dasharray="6,4" class="route-line"/>
-                            <path d="M260 110 Q230 95 208 80" fill="none" stroke="#FF8C00" stroke-width="1.5" stroke-dasharray="6,4" class="route-line"/>
-                            <!-- Plane icon -->
-                            <text x="290" y="95" fill="#FF8C00" font-size="18">✈</text>
-                            <!-- Train icon -->
-                            <text x="240" y="130" fill="#FF8C00" font-size="16">🚂</text>
-                            <!-- Truck icon -->
-                            <text x="330" y="170" fill="#FF8C00" font-size="16">🚛</text>
-                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section services">
+    <!-- SERVICES -->
+    <section id="services" class="section section-dark">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Услуги</span>
-                <h2 class="section-title">Что мы предлагаем</h2>
-                <p class="section-subtitle">Полный спектр логистических решений для вашего бизнеса</p>
+            <div class="section-head center">
+                <span class="tag">Услуги</span>
+                <h2 class="section-title">Полный спектр <span class="gradient-text">логистических решений</span></h2>
+                <p class="section-sub">От забора груза в Китае до доставки на ваш склад — мы берём всё на себя</p>
             </div>
             <div class="services-grid">
-                <div class="service-card" data-aos>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="8" y="28" width="48" height="20" rx="3" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M16 28V18a4 4 0 014-4h24a4 4 0 014 4v10" stroke="currentColor" stroke-width="2.5"/>
-                            <circle cx="20" cy="48" r="5" stroke="currentColor" stroke-width="2.5"/>
-                            <circle cx="44" cy="48" r="5" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M25 48h14" stroke="currentColor" stroke-width="2.5"/>
-                        </svg>
+                <!-- Card 1 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80" alt="Авиаперевозки" loading="lazy">
+                        <div class="srv-badge">Быстро</div>
                     </div>
-                    <h3>Железнодорожные перевозки</h3>
-                    <p>Доставка грузов из Китая железнодорожным транспортом через Казахстан в Россию и страны СНГ. Оптимальное соотношение цены и скорости.</p>
-                    <ul class="service-list">
-                        <li>Контейнерные перевозки</li>
-                        <li>Сборные грузы</li>
-                        <li>Сроки от 14 дней</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Авиаперевозки</h3>
+                        <p>Срочная доставка из любого города Китая авиатранспортом. Идеально для ценных и срочных грузов.</p>
+                        <ul>
+                            <li>Сроки от 3 дней</li>
+                            <li>Из любого города Китая</li>
+                            <li>Отслеживание 24/7</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card featured" data-aos>
-                    <div class="service-badge">Популярное</div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <path d="M8 40l24-28 24 28" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                            <path d="M16 36l16-19 16 19" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/>
-                            <path d="M12 40h40" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M32 12V8M26 14l-3-3M38 14l3-3" stroke="currentColor" stroke-width="2"/>
-                            <rect x="20" y="40" width="24" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
-                        </svg>
+                <!-- Card 2 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="ЖД перевозки" loading="lazy">
+                        <div class="srv-badge">Популярно</div>
                     </div>
-                    <h3>Авиаперевозки</h3>
-                    <p>Срочная доставка грузов авиатранспортом из любого города Китая. Идеально для срочных и ценных грузов небольшого объёма.</p>
-                    <ul class="service-list">
-                        <li>Доставка от 3 дней</li>
-                        <li>Из любого города Китая</li>
-                        <li>Срочные отправки</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Ж/Д перевозки</h3>
+                        <p>Контейнерные перевозки по маршруту Китай — Казахстан — Россия. Лучшее соотношение цены и скорости.</p>
+                        <ul>
+                            <li>Сроки от 14 дней</li>
+                            <li>Контейнерные и сборные</li>
+                            <li>Оптимальная стоимость</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" data-aos>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="4" y="24" width="36" height="20" rx="3" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M40 30h12a4 4 0 013.46 2l4 7A4 4 0 0160 41v3a4 4 0 01-4 4h-2" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M40 44h-6" stroke="currentColor" stroke-width="2.5"/>
-                            <circle cx="16" cy="48" r="5" stroke="currentColor" stroke-width="2.5"/>
-                            <circle cx="48" cy="48" r="5" stroke="currentColor" stroke-width="2.5"/>
-                        </svg>
+                <!-- Card 3 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80" alt="Автоперевозки" loading="lazy">
                     </div>
-                    <h3>Автоперевозки</h3>
-                    <p>Доставка грузов автотранспортом по маршрутам Китай — Казахстан — Россия. Гибкие условия и возможность доставки «от двери до двери».</p>
-                    <ul class="service-list">
-                        <li>Доставка до двери</li>
-                        <li>Полная и частичная загрузка</li>
-                        <li>Гибкие маршруты</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Автоперевозки</h3>
+                        <p>Доставка автотранспортом с возможностью забора и доставки «от двери до двери» по всему СНГ.</p>
+                        <ul>
+                            <li>Доставка до двери</li>
+                            <li>Полная и частичная загрузка</li>
+                            <li>Гибкие маршруты</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" data-aos>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="8" y="8" width="48" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M8 20h48" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 8v12M44 8v12" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 48h32M24 52h16" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M24 30l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                <!-- Card 4 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Таможенное оформление" loading="lazy">
                     </div>
-                    <h3>Таможенное оформление</h3>
-                    <p>Полное сопровождение таможенного оформления грузов. Подготовка документов и решение всех вопросов с таможенными органами.</p>
-                    <ul class="service-list">
-                        <li>Подготовка документов</li>
-                        <li>Сертификация</li>
-                        <li>Консультации</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Таможенное оформление</h3>
+                        <p>Полное сопровождение: подготовка документов, сертификация, решение вопросов с таможенными органами.</p>
+                        <ul>
+                            <li>Подготовка документов</li>
+                            <li>Сертификация товаров</li>
+                            <li>Консультации по ВЭД</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" data-aos>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <rect x="12" y="6" width="40" height="52" rx="4" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M22 18h20M22 26h20M22 34h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="44" cy="46" r="10" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M44 42v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                <!-- Card 5 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Консолидация грузов" loading="lazy">
                     </div>
-                    <h3>Консолидация грузов</h3>
-                    <p>Сборка и консолидация грузов от разных поставщиков на складе в Китае для отправки единой партией. Экономия до 40% на доставке.</p>
-                    <ul class="service-list">
-                        <li>Склад в Китае</li>
-                        <li>Проверка качества</li>
-                        <li>Экономия до 40%</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Консолидация грузов</h3>
+                        <p>Сборка грузов от разных поставщиков на складе в Китае. Экономия до 40% на доставке единой партией.</p>
+                        <ul>
+                            <li>Склад в Китае</li>
+                            <li>Проверка качества</li>
+                            <li>Экономия до 40%</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card" data-aos>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M32 16v16l10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                            <path d="M20 8l-4-4M44 8l4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                            <circle cx="32" cy="32" r="3" fill="currentColor"/>
-                        </svg>
+                <!-- Card 6 -->
+                <div class="srv-card" data-aos>
+                    <div class="srv-img">
+                        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&q=80" alt="Выкуп товаров" loading="lazy">
                     </div>
-                    <h3>Выкуп и поиск товаров</h3>
-                    <p>Помощь в поиске и выкупе товаров у китайских поставщиков. Проверка качества, фото-отчёты и полное сопровождение сделки.</p>
-                    <ul class="service-list">
-                        <li>Поиск поставщиков</li>
-                        <li>Проверка качества</li>
-                        <li>Фото-отчёты</li>
-                    </ul>
+                    <div class="srv-body">
+                        <h3>Выкуп и поиск товаров</h3>
+                        <p>Поиск поставщиков, выкуп, проверка качества, фотоотчёты и полное сопровождение сделки в Китае.</p>
+                        <ul>
+                            <li>Поиск поставщиков</li>
+                            <li>Контроль качества</li>
+                            <li>Фотоотчёты</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advantages -->
-    <section id="advantages" class="section advantages">
+    <!-- WHY US -->
+    <section id="why-us" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Преимущества</span>
-                <h2 class="section-title">Почему выбирают нас</h2>
-                <p class="section-subtitle">Tarlan Trans Plus — это качество, надёжность и индивидуальный подход</p>
+            <div class="section-head center">
+                <span class="tag">Преимущества</span>
+                <h2 class="section-title">Почему выбирают <span class="gradient-text">Tarlan Trans Plus</span></h2>
             </div>
-            <div class="advantages-grid">
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">01</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 4l6 12h13l-10.5 8 4 13L24 29l-12.5 8 4-13L5 16h13z"/></svg>
-                    </div>
-                    <h3>Индивидуальный подход</h3>
-                    <p>Каждый клиент для нас уникален. Мы подбираем оптимальные маршруты и условия доставки под ваши задачи.</p>
-                </div>
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">02</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20z"/><path d="M24 14v10l7 7"/></svg>
+            <div class="why-grid">
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
                     <h3>Точные сроки</h3>
-                    <p>Мы гарантируем соблюдение сроков доставки. Прозрачная логистика с отслеживанием на каждом этапе.</p>
+                    <p>Гарантируем соблюдение сроков. Прозрачная логистика с GPS-отслеживанием на каждом этапе.</p>
                 </div>
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">03</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 24C6 14.059 14.059 6 24 6h0c9.941 0 18 8.059 18 18v14a4 4 0 01-4 4H10a4 4 0 01-4-4V24z"/><path d="M18 28h12M18 34h8"/></svg>
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Все виды грузов</h3>
+                    <p>Работаем с любыми грузами: от небольших посылок до контейнеров с негабаритным оборудованием.</p>
+                </div>
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Страхование</h3>
+                    <p>Каждый груз застрахован. Полная материальная ответственность на всём пути следования.</p>
+                </div>
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
                     </div>
                     <h3>Прозрачные цены</h3>
-                    <p>Никаких скрытых платежей. Стоимость рассчитывается индивидуально и фиксируется до начала перевозки.</p>
+                    <p>Никаких скрытых платежей. Стоимость фиксируется до начала перевозки и не меняется.</p>
                 </div>
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">04</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 30l7 7 14-14"/><rect x="4" y="4" width="40" height="40" rx="6"/></svg>
-                    </div>
-                    <h3>Полное сопровождение</h3>
-                    <p>От выкупа товара в Китае до доставки на ваш склад — мы берём на себя все этапы логистики.</p>
-                </div>
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">05</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6"/></svg>
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     </div>
                     <h3>Поддержка 24/7</h3>
-                    <p>Наши менеджеры всегда на связи. Оперативное решение вопросов и консультации в любое время.</p>
+                    <p>Персональный менеджер на связи круглосуточно. Оперативное решение любых вопросов.</p>
                 </div>
-                <div class="advantage-card" data-aos>
-                    <div class="advantage-num">06</div>
-                    <div class="advantage-icon">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20 20-8.954 20-20S35.046 4 24 4z"/><path d="M16 24l6 6 10-10"/></svg>
+                <div class="why-card" data-aos>
+                    <div class="why-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
-                    <h3>Гарантия безопасности</h3>
-                    <p>Страхование грузов, надёжная упаковка и контроль на каждом этапе транспортировки.</p>
+                    <h3>Полное сопровождение</h3>
+                    <p>Берём на себя всё: от выкупа товара в Китае до таможни и доставки на ваш склад.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Нужна доставка из Китая?</h2>
-                <p>Оставьте заявку и получите расчёт стоимости доставки в течение 30 минут</p>
-                <a href="#contacts" class="btn btn-white btn-lg">Получить расчёт</a>
+    <!-- CTA BANNER -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1920&q=80" alt="" loading="lazy">
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="container cta-inner">
+            <h2>Нужна доставка из Китая?</h2>
+            <p>Оставьте заявку — рассчитаем стоимость за 30 минут. Бесплатно и без обязательств.</p>
+            <div class="cta-btns">
+                <a href="#contacts" class="btn btn-glow btn-xl">Получить расчёт</a>
+                <a href="https://wa.me/77087211651" target="_blank" class="btn btn-glass btn-xl">Написать в WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Geography -->
-    <section id="geography" class="section geography">
+    <!-- GEOGRAPHY -->
+    <section id="geography" class="section section-dark">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">География</span>
-                <h2 class="section-title">Направления доставки</h2>
-                <p class="section-subtitle">Основной маршрут Китай — Россия с покрытием всех стран СНГ</p>
+            <div class="section-head center">
+                <span class="tag">География</span>
+                <h2 class="section-title">Направления <span class="gradient-text">доставки</span></h2>
+                <p class="section-sub">Основной маршрут Китай — Россия с покрытием всех стран СНГ</p>
             </div>
-            <div class="geo-grid">
-                <div class="geo-card main" data-aos>
-                    <div class="geo-flag">🇨🇳</div>
-                    <h3>Китай</h3>
-                    <p>Отправка из всех крупных городов: Гуанчжоу, Иу, Шэньчжэнь, Пекин, Шанхай и др.</p>
+            <div class="geo-showcase">
+                <div class="geo-main-route">
+                    <div class="route-visual">
+                        <div class="route-point">
+                            <div class="route-flag">🇨🇳</div>
+                            <span>Китай</span>
+                        </div>
+                        <div class="route-line-animated">
+                            <div class="route-plane">✈</div>
+                        </div>
+                        <div class="route-point">
+                            <div class="route-flag">🇰🇿</div>
+                            <span>Казахстан</span>
+                        </div>
+                        <div class="route-line-animated">
+                            <div class="route-truck">🚛</div>
+                        </div>
+                        <div class="route-point">
+                            <div class="route-flag">🇷🇺</div>
+                            <span>Россия</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="geo-card main" data-aos>
-                    <div class="geo-flag">🇷🇺</div>
-                    <h3>Россия</h3>
-                    <p>Доставка в Москву, Новосибирск, Екатеринбург, Казань и другие города России</p>
+                <div class="geo-grid">
+                    <div class="geo-card geo-main" data-aos>
+                        <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=400&q=80" alt="Китай" loading="lazy">
+                        <div class="geo-card-body">
+                            <div class="geo-flag-sm">🇨🇳</div>
+                            <h3>Китай</h3>
+                            <p>Гуанчжоу, Иу, Шэньчжэнь, Пекин, Шанхай и все крупные города</p>
+                        </div>
+                    </div>
+                    <div class="geo-card geo-main" data-aos>
+                        <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=400&q=80" alt="Россия" loading="lazy">
+                        <div class="geo-card-body">
+                            <div class="geo-flag-sm">🇷🇺</div>
+                            <h3>Россия</h3>
+                            <p>Москва, Новосибирск, Екатеринбург, Казань и другие города</p>
+                        </div>
+                    </div>
+                    <div class="geo-card geo-main" data-aos>
+                        <img src="https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?w=400&q=80" alt="Казахстан" loading="lazy">
+                        <div class="geo-card-body">
+                            <div class="geo-flag-sm">🇰🇿</div>
+                            <h3>Казахстан</h3>
+                            <p>Астана, Алматы и все крупные города. Транзит и доставка</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="geo-card main" data-aos>
-                    <div class="geo-flag">🇰🇿</div>
-                    <h3>Казахстан</h3>
-                    <p>Астана, Алматы, и все крупные города. Транзит и конечная доставка</p>
-                </div>
-                <div class="geo-card" data-aos>
-                    <div class="geo-flag">🇰🇬</div>
-                    <h3>Кыргызстан</h3>
-                    <p>Бишкек и другие города</p>
-                </div>
-                <div class="geo-card" data-aos>
-                    <div class="geo-flag">🇺🇿</div>
-                    <h3>Узбекистан</h3>
-                    <p>Ташкент и другие города</p>
-                </div>
-                <div class="geo-card" data-aos>
-                    <div class="geo-flag">🇹🇯</div>
-                    <h3>Таджикистан</h3>
-                    <p>Душанбе и другие города</p>
-                </div>
-                <div class="geo-card" data-aos>
-                    <div class="geo-flag">🇹🇲</div>
-                    <h3>Туркменистан</h3>
-                    <p>Ашхабад и другие города</p>
+                <div class="geo-cis">
+                    <div class="geo-cis-item" data-aos>🇰🇬 <span>Кыргызстан</span></div>
+                    <div class="geo-cis-item" data-aos>🇺🇿 <span>Узбекистан</span></div>
+                    <div class="geo-cis-item" data-aos>🇹🇯 <span>Таджикистан</span></div>
+                    <div class="geo-cis-item" data-aos>🇹🇲 <span>Туркменистан</span></div>
+                    <div class="geo-cis-item" data-aos>🇦🇿 <span>Азербайджан</span></div>
+                    <div class="geo-cis-item" data-aos>🇬🇪 <span>Грузия</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="section process">
+    <!-- PROCESS -->
+    <section id="process" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Как мы работаем</span>
-                <h2 class="section-title">4 простых шага</h2>
-                <p class="section-subtitle">От заявки до получения груза — всё максимально просто</p>
+            <div class="section-head center">
+                <span class="tag">Как мы работаем</span>
+                <h2 class="section-title">От заявки до получения — <span class="gradient-text">4 шага</span></h2>
             </div>
-            <div class="process-grid">
-                <div class="process-step" data-aos>
-                    <div class="process-num">1</div>
-                    <div class="process-line"></div>
+            <div class="steps-wrap">
+                <div class="step-card" data-aos>
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
                     <h3>Заявка</h3>
-                    <p>Оставьте заявку на сайте или напишите в WhatsApp. Расскажите о грузе и пожеланиях.</p>
+                    <p>Оставьте заявку на сайте или напишите в WhatsApp. Расскажите о грузе.</p>
                 </div>
-                <div class="process-step" data-aos>
-                    <div class="process-num">2</div>
-                    <div class="process-line"></div>
+                <div class="step-connector"><svg viewBox="0 0 60 20"><path d="M0 10h50M45 4l6 6-6 6" fill="none" stroke="#FF9500" stroke-width="2"/></svg></div>
+                <div class="step-card" data-aos>
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-4-4"/></svg>
+                    </div>
                     <h3>Расчёт</h3>
-                    <p>Мы рассчитаем стоимость, подберём оптимальный маршрут и согласуем условия.</p>
+                    <p>Рассчитаем стоимость, подберём маршрут и согласуем условия.</p>
                 </div>
-                <div class="process-step" data-aos>
-                    <div class="process-num">3</div>
-                    <div class="process-line"></div>
+                <div class="step-connector"><svg viewBox="0 0 60 20"><path d="M0 10h50M45 4l6 6-6 6" fill="none" stroke="#FF9500" stroke-width="2"/></svg></div>
+                <div class="step-card" data-aos>
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
                     <h3>Доставка</h3>
-                    <p>Забираем груз, оформляем документы и доставляем в оговоренные сроки.</p>
+                    <p>Забираем груз, оформляем документы и доставляем в срок.</p>
                 </div>
-                <div class="process-step" data-aos>
-                    <div class="process-num">4</div>
+                <div class="step-connector"><svg viewBox="0 0 60 20"><path d="M0 10h50M45 4l6 6-6 6" fill="none" stroke="#FF9500" stroke-width="2"/></svg></div>
+                <div class="step-card" data-aos>
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
                     <h3>Получение</h3>
-                    <p>Вы получаете груз в целости и сохранности. Полный отчёт о доставке.</p>
+                    <p>Получаете груз в целости. Полный отчёт о доставке.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacts -->
-    <section id="contacts" class="section contacts">
+    <!-- CONTACTS -->
+    <section id="contacts" class="section section-dark">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Контакты</span>
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <p class="section-subtitle">Мы ответим на все ваши вопросы и рассчитаем стоимость доставки</p>
+            <div class="section-head center">
+                <span class="tag">Контакты</span>
+                <h2 class="section-title">Свяжитесь <span class="gradient-text">с нами</span></h2>
+                <p class="section-sub">Ответим на все вопросы и рассчитаем стоимость доставки</p>
             </div>
-            <div class="contacts-grid">
-                <div class="contacts-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                        </div>
+            <div class="contacts-layout">
+                <div class="contacts-left">
+                    <div class="contact-card-big">
+                        <div class="ccb-icon wa"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0012.05 0z"/></svg></div>
                         <div>
-                            <h4>Телефон</h4>
-                            <a href="tel:+77087211651">+7 (708) 721-16-51</a>
+                            <h3>WhatsApp</h3>
+                            <p>Напишите нам — ответим за 5 минут</p>
+                            <a href="https://wa.me/77087211651" target="_blank" class="btn btn-wa">Открыть чат</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon whatsapp-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <div class="contact-info-grid">
+                        <div class="ci-item">
+                            <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+                            <div><h4>Телефон</h4><a href="tel:+77087211651">+7 (708) 721-16-51</a></div>
                         </div>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <a href="https://wa.me/77087211651" target="_blank">Написать в WhatsApp</a>
+                        <div class="ci-item">
+                            <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                            <div><h4>Email</h4><a href="mailto:info@tarlantrans.kz">info@tarlantrans.kz</a></div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <div class="ci-item">
+                            <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <div><h4>Адрес</h4><p>г. Астана, Казахстан</p></div>
                         </div>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:info@tarlantrans.kz">info@tarlantrans.kz</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div>
-                            <h4>Адрес</h4>
-                            <p>г. Астана, Казахстан</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </div>
-                        <div>
-                            <h4>Instagram</h4>
-                            <a href="#" target="_blank">@tarlantransplus</a>
+                        <div class="ci-item">
+                            <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+                            <div><h4>Instagram</h4><a href="#">@tarlantransplus</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="contacts-form-wrap">
-                    <form class="contact-form" id="contactForm">
+                <div class="contacts-right">
+                    <form class="form-card" id="contactForm">
                         <h3>Оставить заявку</h3>
-                        <p>Заполните форму и мы свяжемся с вами в течение 30 минут</p>
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" placeholder="Номер телефона" required>
-                        </div>
-                        <div class="form-group">
+                        <p>Заполните форму — мы свяжемся в течение 30 минут</p>
+                        <div class="fg"><input type="text" id="name" placeholder="Ваше имя *" required></div>
+                        <div class="fg"><input type="tel" id="phone" placeholder="Номер телефона *" required></div>
+                        <div class="fg">
                             <select id="serviceType">
                                 <option value="" disabled selected>Тип перевозки</option>
-                                <option value="avia">Авиаперевозка</option>
-                                <option value="rail">Ж/Д перевозка</option>
-                                <option value="auto">Автоперевозка</option>
-                                <option value="other">Другое</option>
+                                <option value="Авиаперевозка">Авиаперевозка</option>
+                                <option value="Ж/Д перевозка">Ж/Д перевозка</option>
+                                <option value="Автоперевозка">Автоперевозка</option>
+                                <option value="Другое">Другое</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" placeholder="Опишите ваш груз и пожелания" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+                        <div class="fg"><textarea id="message" placeholder="Опишите ваш груз" rows="4"></textarea></div>
+                        <button type="submit" class="btn btn-glow btn-full">
+                            <span>Отправить заявку</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="#hero" class="logo footer-logo">
-                        <div class="logo-icon">T</div>
-                        <div class="logo-text">
-                            <span class="logo-name">TARLAN</span>
-                            <span class="logo-sub">TRANS PLUS</span>
-                        </div>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo">
+                        <div class="logo-mark">T</div>
+                        <div class="logo-type"><span>TARLAN TRANS</span><small>PLUS</small></div>
                     </a>
-                    <p>Надёжные грузоперевозки из Китая в Россию и страны СНГ. Индивидуальный подход к каждому клиенту.</p>
+                    <p>Надёжные грузоперевозки из Китая в Россию и страны СНГ. Полный комплекс логистических услуг.</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Навигация</h4>
                     <a href="#about">О компании</a>
                     <a href="#services">Услуги</a>
-                    <a href="#advantages">Преимущества</a>
+                    <a href="#why-us">Преимущества</a>
                     <a href="#geography">География</a>
                     <a href="#contacts">Контакты</a>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Услуги</h4>
                     <a href="#services">Авиаперевозки</a>
                     <a href="#services">Ж/Д перевозки</a>
@@ -585,11 +559,11 @@
                     <a href="#services">Таможенное оформление</a>
                     <a href="#services">Консолидация грузов</a>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-col">
                     <h4>Контакты</h4>
-                    <p>📞 +7 (708) 721-16-51</p>
-                    <p>📧 info@tarlantrans.kz</p>
-                    <p>📍 г. Астана, Казахстан</p>
+                    <a href="tel:+77087211651">+7 (708) 721-16-51</a>
+                    <a href="mailto:info@tarlantrans.kz">info@tarlantrans.kz</a>
+                    <p>г. Астана, Казахстан</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -598,13 +572,14 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/77087211651" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/77087211651" target="_blank" class="wa-float" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="wa-tooltip">Написать нам</span>
     </a>
 
     <!-- Back to top -->
-    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+    <button class="top-btn" id="topBtn" aria-label="Наверх">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 

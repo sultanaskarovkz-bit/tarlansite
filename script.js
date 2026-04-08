@@ -1,184 +1,124 @@
-// ===== LOADER =====
+/* ============================
+   TARLAN TRANS PLUS — Production JS
+   ============================ */
+
+// --- Loader ---
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.getElementById('loader').classList.add('hidden');
-    }, 2200);
+    setTimeout(() => document.getElementById('loader').classList.add('done'), 2400);
 });
 
-// ===== HEADER SCROLL =====
+// --- Header scroll ---
 const header = document.getElementById('header');
-let lastScroll = 0;
+const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+    document.getElementById('topBtn').classList.toggle('show', window.scrollY > 500);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 60) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-});
-
-// ===== BURGER MENU =====
+// --- Burger ---
 const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
+const overlay = document.getElementById('mobOverlay');
+const closeMob = () => { burger.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; };
 
 burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    const open = burger.classList.toggle('open');
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
 });
+overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
 
-// Close mobile menu on link click
-document.querySelectorAll('.mobile-link, .btn-mobile').forEach(link => {
-    link.addEventListener('click', () => {
-        burger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+// --- Smooth scroll ---
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// ===== PARTICLES =====
-function createParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
-    for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.width = particle.style.height = (Math.random() * 4 + 2) + 'px';
-        particle.style.animationDuration = (Math.random() * 8 + 6) + 's';
-        particle.style.animationDelay = (Math.random() * 10) + 's';
-        container.appendChild(particle);
-    }
-}
-createParticles();
-
-// ===== COUNTER ANIMATION =====
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-num[data-target]');
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
-        const start = performance.now();
-
-        function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(eased * target);
-
-            if (target >= 1000) {
-                counter.textContent = current.toLocaleString('ru-RU');
-            } else {
-                counter.textContent = current;
-            }
-
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            }
-        }
-        requestAnimationFrame(update);
-    });
+// --- Counter animation ---
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    if (!target) return;
+    const dur = 2200;
+    const start = performance.now();
+    const step = now => {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 4);
+        el.textContent = Math.round(ease * target).toLocaleString('ru-RU');
+        if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
 }
 
-// Trigger counters when hero stats are visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
+const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('[data-target]').forEach(animateCounter);
+            counterObs.unobserve(e.target);
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
+const hc = document.querySelector('.hero-counters');
+if (hc) counterObs.observe(hc);
 
-// ===== SCROLL ANIMATIONS (AOS) =====
-const aosObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+// --- AOS (Animate on Scroll) ---
+const aosObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-aos]').forEach(el => aosObs.observe(el));
 
-document.querySelectorAll('[data-aos]').forEach(el => aosObserver.observe(el));
-
-// ===== BACK TO TOP =====
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 500) {
-        backToTop.classList.add('visible');
-    } else {
-        backToTop.classList.remove('visible');
-    }
-});
-
-backToTop.addEventListener('click', () => {
+// --- Back to top ---
+document.getElementById('topBtn').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ===== FORM HANDLING =====
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const service = document.getElementById('serviceType').value;
-        const message = document.getElementById('message').value;
-
-        // Create WhatsApp message
-        let waMessage = `Здравствуйте! Меня зовут ${name}.%0A`;
-        waMessage += `Телефон: ${phone}%0A`;
-        if (service) waMessage += `Тип перевозки: ${service}%0A`;
-        if (message) waMessage += `Сообщение: ${message}`;
-
-        // Open WhatsApp with the message
-        window.open(`https://wa.me/77087211651?text=${waMessage}`, '_blank');
-
-        // Show success feedback
-        const btn = contactForm.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-        btn.textContent = 'Перенаправление в WhatsApp...';
-        btn.style.background = '#25D366';
-
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            contactForm.reset();
-        }, 3000);
-    });
-}
-
-// ===== ACTIVE NAV LINK =====
+// --- Active nav link ---
 const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.desktop-nav a');
 window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset + 100;
-    sections.forEach(section => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        const id = section.getAttribute('id');
-        const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    const y = window.scrollY + 120;
+    sections.forEach(s => {
+        const top = s.offsetTop, h = s.offsetHeight, id = s.id;
+        const link = document.querySelector(`.desktop-nav a[href="#${id}"]`);
         if (link) {
-            if (scrollY >= top && scrollY < top + height) {
-                document.querySelectorAll('.nav-link').forEach(l => l.style.color = '');
-                link.style.color = '#FF8C00';
+            if (y >= top && y < top + h) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
             }
         }
     });
-});
+}, { passive: true });
+
+// --- Form → WhatsApp ---
+const form = document.getElementById('contactForm');
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const service = document.getElementById('serviceType').value;
+        const msg = document.getElementById('message').value.trim();
+
+        let text = `Здравствуйте! Меня зовут ${name}.%0AТелефон: ${phone}`;
+        if (service) text += `%0AТип перевозки: ${service}`;
+        if (msg) text += `%0AСообщение: ${msg}`;
+
+        window.open(`https://wa.me/77087211651?text=${text}`, '_blank');
+
+        const btn = form.querySelector('button[type="submit"]');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>Перенаправление в WhatsApp...</span>';
+        btn.style.background = '#25D366';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; form.reset(); }, 3000);
+    });
+}
+
+// --- Parallax hero video subtle ---
+window.addEventListener('scroll', () => {
+    const video = document.querySelector('.hero-video');
+    if (video && window.scrollY < window.innerHeight) {
+        video.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    }
+}, { passive: true });

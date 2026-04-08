@@ -4,7 +4,16 @@
       "WebFetch(domain:uelogistic.com)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m ':*)"
+      "Bash(git commit -m ':*)",
+      "Bash(gh repo:*)",
+      "Bash(winget install:*)",
+      "Bash(powershell.exe -Command \"winget install --id GitHub.cli --accept-package-agreements --accept-source-agreements\")",
+      "Bash(powershell.exe:*)",
+      "Read(//c/Users/User/gh-cli//**)",
+      "Read(//c/Users/User/gh-cli/**)",
+      "Bash($GH:*)",
+      "Bash($GH auth:*)",
+      "Bash($GH repo:*)"
     ]
   }
 }
