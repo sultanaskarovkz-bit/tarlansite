@@ -103,15 +103,10 @@ if (form) form.addEventListener('submit', e => {
     setTimeout(() => { btn.textContent = 'Отправить заявку →'; btn.style.background = ''; form.reset(); }, 3000);
 });
 
-// ===== TILT EFFECT ON CARDS =====
-document.querySelectorAll('.srv, .why').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `translateY(-10px) perspective(600px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
+// ===== SMOOTH PARALLAX ON HERO VIDEO =====
+window.addEventListener('scroll', () => {
+    const v = document.querySelector('.hero-video');
+    if (v && scrollY < window.innerHeight) {
+        v.style.transform = `scale(1.05) translateY(${scrollY * 0.1}px)`;
+    }
+}, { passive: true });
