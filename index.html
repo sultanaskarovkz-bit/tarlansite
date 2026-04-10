@@ -265,6 +265,13 @@
                 <input type="tel" id="phone" placeholder="Номер телефона *" required>
                 <select id="serviceType"><option value="" disabled selected>Тип перевозки</option><option value="Авиа">Авиаперевозка</option><option value="ЖД">Ж/Д перевозка</option><option value="Авто">Автоперевозка</option><option value="Другое">Другое</option></select>
                 <textarea id="message" placeholder="Опишите ваш груз" rows="4"></textarea>
+                <!-- Honeypot — hidden from humans, bots fill it -->
+                <input type="text" name="website" id="honeypot" class="hp-field" autocomplete="off" tabindex="-1">
+                <!-- CAPTCHA -->
+                <div class="captcha-row">
+                    <span class="captcha-q" id="captchaQ"></span>
+                    <input type="text" id="captchaA" placeholder="Ответ *" required autocomplete="off">
+                </div>
                 <button type="submit" class="btn btn-orange btn-full btn-lg">Отправить заявку →</button>
             </form>
         </div>

@@ -85,10 +85,32 @@ window.addEventListener('scroll', () => {
     });
 }, { passive: true });
 
+// ===== CAPTCHA =====
+let captchaAnswer = 0;
+function generateCaptcha() {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    captchaAnswer = a + b;
+    const q = document.getElementById('captchaQ');
+    if (q) q.textContent = `${a} + ${b} = ?`;
+}
+generateCaptcha();
+
 // ===== FORM → WHATSAPP =====
 const form = document.getElementById('contactForm');
 if (form) form.addEventListener('submit', e => {
     e.preventDefault();
+    // Honeypot check
+    if (document.getElementById('honeypot').value) return;
+    // Captcha check
+    const ca = document.getElementById('captchaA');
+    if (parseInt(ca.value) !== captchaAnswer) {
+        ca.style.borderColor = '#ff4444';
+        ca.setAttribute('placeholder', 'Неверный ответ!');
+        ca.value = '';
+        generateCaptcha();
+        return;
+    }
     const n = document.getElementById('name').value.trim();
     const p = document.getElementById('phone').value.trim();
     const s = document.getElementById('serviceType').value;
@@ -100,7 +122,7 @@ if (form) form.addEventListener('submit', e => {
     const btn = form.querySelector('button');
     btn.textContent = '✓ Перенаправление в WhatsApp...';
     btn.style.background = '#25D366';
-    setTimeout(() => { btn.textContent = 'Отправить заявку →'; btn.style.background = ''; form.reset(); }, 3000);
+    setTimeout(() => { btn.textContent = 'Отправить заявку →'; btn.style.background = ''; form.reset(); generateCaptcha(); }, 3000);
 });
 
 // ===== SMOOTH PARALLAX ON HERO VIDEO =====

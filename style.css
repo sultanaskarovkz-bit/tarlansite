@@ -315,6 +315,15 @@ h2 span{background:var(--og);-webkit-background-clip:text;-webkit-text-fill-colo
 .form select{cursor:pointer;-webkit-appearance:none;appearance:none}
 .form select option{background:var(--card);color:var(--txt)}
 .form textarea{resize:vertical;min-height:90px}
+.hp-field{position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden}
+.captcha-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.captcha-q{
+    flex-shrink:0;padding:12px 16px;
+    background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.2);
+    border-radius:var(--rs);font-size:15px;font-weight:600;color:var(--o);
+    white-space:nowrap;letter-spacing:1px;
+}
+.captcha-row input{margin-bottom:0;flex:1}
 
 /* ============ FOOTER ============ */
 .footer{background:var(--bg2);border-top:1px solid var(--brd);padding-top:60px}
